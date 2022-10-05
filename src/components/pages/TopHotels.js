@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from "react-slick";
 
 const TopHotels = () => {
 
@@ -23,7 +24,7 @@ const TopHotels = () => {
 
 
     return (
-        <div>
+        <div className='mx-auto max-w-[1100px]'>
 
             <div className='mt-5'>
                 <h2 className='text-primary text-[22px] px-3 font-semibold'>TOP HOTEL DESTINATIONS</h2>
@@ -32,17 +33,19 @@ const TopHotels = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 p-5'>{
                 hotels.map(flight => {
-                    return <div className='w-[285px] h-[225px] '>
+                    return <div key={flight._id} className='w-[285px] h-[225px] '>
                         <img src={flight.img} alt="" />
                         <h1>{flight.title}</h1>
                     </div>
                 })
             }
-
             </div>
 
 
         </div>
+
+
+
     );
 };
 

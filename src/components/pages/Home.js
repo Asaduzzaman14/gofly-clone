@@ -16,7 +16,7 @@ const Home = () => {
             <TopFlights />
             <TopHotels />
             <Gofly />
-            {/* <Testmonial /> */}
+            <Testmonial />
         </div>
     );
 };

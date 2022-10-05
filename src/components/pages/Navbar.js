@@ -13,13 +13,9 @@ const Navbar = () => {
 
     const menuItem = <>
         <li><Link className='rounded-lg text-xl' to='/home'><span><AiTwotoneHome /></span> Home</Link></li>
-        <li>
-            <Link className='rounded-lg text-xl' to='/about'>
-                <span><MdOutlineFlight /> </span>
-                FLIGHTS</Link>
-        </li>
-        <li><Link className='rounded-lg text-xl' to='/blogs'><span> <MdHotel /></span> HOTELS</Link></li>
-        <li><Link className='rounded-lg text-xl' to='/blogs'><span><FaClinicMedical /></span> MEDICAL</Link></li>
+        <li> <Link className='rounded-lg text-xl' to='/home'> <span><MdOutlineFlight /> </span>FLIGHTS</Link></li>
+        <li><Link className='rounded-lg text-xl' to='/home'><span> <MdHotel /></span> HOTELS</Link></li>
+        <li><Link className='rounded-lg text-xl' to='/medical'><span><FaClinicMedical /></span> MEDICAL</Link></li>
 
     </>
     const topMenuItem = <>
@@ -31,7 +27,7 @@ const Navbar = () => {
 
 
     return (
-        <>
+        <div className='mx-auto max-w-[1100px]'>
             <div className=''>
                 <div className=" grid grid-cols-1 justify-items-end ">
                     <ul className="menu menu-horizontal p-0 bg-base-200 border border- ">
@@ -67,7 +63,7 @@ const Navbar = () => {
 
             </div>
 
-        </>
+        </div>
 
     );
 };
