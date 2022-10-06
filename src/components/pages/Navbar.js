@@ -5,12 +5,19 @@ import logo from '../assets/gofly-logo1.png'
 import { MdHotel, MdOutlineFlight } from 'react-icons/md';
 import { FaClinicMedical } from 'react-icons/fa';
 import { AiTwotoneHome } from 'react-icons/ai';
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 
 
 const Navbar = () => {
+    const [user] = useAuthState(auth)
 
-
+    const logout = () => {
+        signOut(auth)
+        localStorage.removeItem('accessToken');
+    }
     const menuItem = <>
         <li><Link className='rounded-lg text-xl' to='/home'><span><AiTwotoneHome /></span> Home</Link></li>
         <li> <Link className='rounded-lg text-xl' to='/home'> <span><MdOutlineFlight /> </span>FLIGHTS</Link></li>
@@ -18,11 +25,21 @@ const Navbar = () => {
         <li><Link className='rounded-lg text-xl' to='/medical'><span><FaClinicMedical /></span> MEDICAL</Link></li>
 
     </>
+
     const topMenuItem = <>
         <li><Link className='rounded-lg text-xl' to='/about-us'>About Us</Link></li>
         <li><Link className='rounded-lg text-xl' to='/contract-us'>Contract Us</Link></li>
-        <li><Link className='rounded-lg text-xl' to='/login'>Agent Login</Link></li>
-        <li><Link className='rounded-lg text-xl' to='/blogs'>Customer Login</Link></li>
+        {/* <li><Link className='rounded-lg text-xl' to='/login'>Agent Login</Link></li> */}
+
+        <li>{user ? <>
+            <Link to='/dashborad' className='btn btn-ghost text-xl'>Dashborad</Link>
+            <button onClick={logout} className='btn btn-ghost text-xl' >Sign out</button>
+        </>
+            : <Link className='rounded-lg text-xl' to='/login'>Agent Login</Link>}
+        </li>
+
+        <li><Link className='rounded-lg text-xl' to='/login'>Customer Login</Link></li>
+
     </>
 
 
@@ -37,7 +54,7 @@ const Navbar = () => {
             </div>
 
 
-            <div className="navbar h-28  z-10  shadow-xl">
+            <div className="navbar h-28  z-10  shadow-sm">
 
                 <div className="navbar-start">
                     <span className=""><img src={logo} alt="" /></span>

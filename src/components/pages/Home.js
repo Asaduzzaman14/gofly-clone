@@ -10,7 +10,7 @@ import TopHotels from './TopHotels';
 const Home = () => {
     return (
         <div>
-            {/* <Banner /> */}
+            <Banner />
             <Important />
             <ChooseUs />
             <TopFlights />
