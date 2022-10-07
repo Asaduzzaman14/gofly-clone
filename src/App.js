@@ -15,6 +15,9 @@ import Register from './components/auth/Register';
 import Hotels from './components/pages/Hotels';
 import Medical from './components/pages/Medical';
 import AllFlights from './components/pages/AllFlights';
+import Dashbord from './components/pages/Dashboard/Dashbord';
+import AllFlight from './components/pages/Dashboard/AllFlight';
+import AllOrders from './components/pages/Dashboard/AllOrders';
 
 function App() {
   return (
@@ -33,6 +36,18 @@ function App() {
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+
+
+        <Route path="dashborad" element={<><Dashbord></Dashbord></>}>
+
+          <Route path="allFlight" element={<AllFlight></AllFlight>}> </Route>
+          <Route path="orders" element={<AllOrders></AllOrders>}> </Route>
+
+
+        </Route>
+
+
+
       </Routes>
       <Footer />
     </div>

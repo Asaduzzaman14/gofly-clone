@@ -35,10 +35,14 @@ const Navbar = () => {
             <Link to='/dashborad' className='btn btn-ghost text-xl'>Dashborad</Link>
             <button onClick={logout} className='btn btn-ghost text-xl' >Sign out</button>
         </>
-            : <Link className='rounded-lg text-xl' to='/login'>Agent Login</Link>}
+            : <div>
+                <Link className='rounded-lg text-xl' to='/login'>Agent Login</Link>
+                <li><Link className='rounded-lg text-xl' to='/login'>Customer Login</Link></li>
+            </div>
+        }
+
         </li>
 
-        <li><Link className='rounded-lg text-xl' to='/login'>Customer Login</Link></li>
 
     </>
 
